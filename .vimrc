@@ -253,15 +253,14 @@ function! DjangoTest()
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :!python manage.py test -v3 --failfast
+  :!python manage.py test unigdb.tests.test_views -v3 --failfast
 endfunction
 map <leader>tt :call DjangoTest()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Django asynchronous testing
+" Django asynchronous testing on tmux pane
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" map <leader>t :w\|:silent !echo "python manage.py test -v3" > test-commands<cr>
-map <leader>t :w\|:silent !echo "ls -la; date" > test-commands<cr>
+map <leader>t :call VimuxRunCommand('workon unigdb && cd unisite && python manage.py test -v3')<cr>
 
 
 
@@ -357,6 +356,29 @@ function! GitPLOM()
   :!git plom
 endfunction
 map <leader>plom :call GitPLOM()<cr>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" git log
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! GitPLOM()
+  :w
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :!git l 
+endfunction
+map <leader>gl :call GitPLOM()<cr>
 
 
 set number
