@@ -253,9 +253,16 @@ function! DjangoTest()
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :!python manage.py test
+  :!python manage.py test -v3 --failfast
 endfunction
 map <leader>tt :call DjangoTest()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Django asynchronous testing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map <leader>t :w\|:silent !echo "python manage.py test -v3" > test-commands<cr>
+map <leader>t :w\|:silent !echo "ls -la; date" > test-commands<cr>
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -375,7 +382,7 @@ command Wq wq
 command W w
 command Q q
 
-set wildignore+=unigdb/static/*
+set wildignore+=unigdb/static/*,*.pyc
 set rtp+=~/.fzf
 " For MacVim
 set guifont=PragmataPro:h18
