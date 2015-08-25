@@ -253,14 +253,14 @@ function! DjangoTest()
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  :!python manage.py test unigdb.tests.test_views -v3 --failfast
+  :!python manage.py test unigdb.tests.test_models -v3
 endfunction
-map <leader>tt :call DjangoTest()<cr>
+map <leader>t :call DjangoTest()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Django asynchronous testing on tmux pane
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>t :call VimuxRunCommand('workon unigdb && cd unisite && python manage.py test -v3')<cr>
+" map <leader>t :call VimuxRunCommand('workon unigdb && cd unisite && python manage.py test unigdb.tests.test_views -v3')<cr>
 
 
 
@@ -361,7 +361,7 @@ map <leader>plom :call GitPLOM()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git log
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! GitPLOM()
+function! GitLog()
   :w
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
@@ -378,8 +378,9 @@ function! GitPLOM()
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
   :!git l 
 endfunction
-map <leader>gl :call GitPLOM()<cr>
+map <leader>gl :call GitLog()<cr>
 
+map <leader>vimrc :e ~/.vimrc<cr>
 
 set number
 set pastetoggle=<F2>
@@ -412,3 +413,7 @@ set gcr=a:blinkon0
 set go-=T
 set ruler
 nnoremap <leader>a :Ag 
+
+let g:dash_map = {
+      \ 'python' : 'django'
+      \ }

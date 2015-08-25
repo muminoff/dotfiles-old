@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/vim-tmux"]
 	path = .vim/bundle/vim-tmux
 	url = https://github.com/benmills/vimux
+[submodule ".vim/bundle/vim-dash"]
+	path = .vim/bundle/vim-dash
+	url = https://github.com/rizzatti/dash.vim
