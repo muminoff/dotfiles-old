@@ -385,8 +385,6 @@ map <leader>vimrc :e ~/.vimrc<cr>
 set number
 set pastetoggle=<F2>
 set noswapfile
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 noremap <C-j> 15j<cr>
 noremap <C-k> 15k<cr>
 
@@ -419,3 +417,6 @@ let g:dash_map = {
       \ 'python' : 'django'
       \ }
 nnoremap <leader>d :Dash
+
+autocmd FileType html,js,css,xml highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType html,js,css,xml match OverLength /\%81v.\+/
