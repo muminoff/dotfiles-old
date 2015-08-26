@@ -414,6 +414,8 @@ set go-=T
 set ruler
 nnoremap <leader>a :Ag 
 
+" Dash
 let g:dash_map = {
       \ 'python' : 'django'
       \ }
+nnoremap <leader>d :Dash
